@@ -5,7 +5,7 @@ git remote -v 检查是否关联成功
 git remote add origin htttp://gitbug.com/jiangmengweimeng-afk/目标文件.git  添加到远程仓库
 git push -u origin main 把本地 mian 分支推送到远程origin的mian分支
 git pull origin mian  从远程origin的mian分支拉取最新的代码到本地
-git reomote remove origin 用于之前已经关联仓库执行的命令
+git reomote remove origin 用于删除之前已经关联仓库执行的命令
 
 cd .. 其中.. 是退出到上一个目录 一个 . 代表一个级别的目录
 
