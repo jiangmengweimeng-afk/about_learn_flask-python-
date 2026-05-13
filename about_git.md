@@ -9,4 +9,9 @@ git reomote remove origin 用于之前已经关联仓库执行的命令
 
 cd .. 其中.. 是退出到上一个目录 一个 . 代表一个级别的目录
 
+ls 查看当前仓库里的文件
+
+git log 看提交了什么
+git push 把提交推到github
+
 
