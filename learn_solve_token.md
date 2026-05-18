@@ -98,3 +98,65 @@ LocalStorage	✅ 能	❌ 不能（XSS 直接偷）	✅ 天然防护	只有前端
     value=refresh_token(生产环境必须开启https)
     samesite='Lax'(防CSRF攻击的重要配置) 这是一个跨站请求控制属性
     max_age=7*24*60*60(有效期要和refresh_token保持一致)
+
+    通常Access Token 是放在HTTP响应体（JSON）里给前端用的 而Refresh Token 才是放在Cookie里用来续期的
+
+
+is＿revoked: 是Flask-JWT/Flask-JWT-Extended扩展里的核心函数， 专门用来判断JWT令牌（Token）是否已经被吊销或者拉黑 简单的来说就是校验当前请求携带的Token，是不是已经被用户主动注销或者强制失效了
+核心作用：假如是有过期时间到期自动失效，或者是用户主动登出、管理员强制踢人、账号被盗需要立即封禁（立即失效所有关联的Token），就需要让Token提前失效 is_revoked 就是这个作用  返回True = 已吊销（拒绝访问），False = 有效（允许访问）
+函数名可以自定义 但是必须用 @jwt.token_in_blocklist_loader 装饰
+
+
+关于cookie的samesite的参数：
+    Lax: 允许在用固话点击链接跳转时发送cookie,但是跨站POST请求或图片加载时不发送，这对大多数登录场景（包括前后端分离）都很友好
+    None：如果发现前端跨域请求时cookie总是传不过去，且确定用了HTTPS（生产环境）那时候才需要改成None'
+关于cookie 的 secure 参数：
+如果是本地开发（HTTP）暂时改为 secure=False
+如果是生产环境（HTTPS）保持是 secure=True 如果是True会导致本地cookie无法保存 如果要测试的话一定记得给False  不然在生产环境下回直接忽略cookie
+更进阶的写法是 secure=current_app.config.get('ENV') == 'production'
+
+app.run(debug=True)不能在生产环境使用，会暴漏敏感信息， 而且Flask自带的app.run()也不适合生产部署,建议使用 run.app(debug=app.config.get('DEBUG', False))
+
+如果要测试cookie 假如忘记了密码或者用户 我们可以用 res = requests.post("http://localhost:5000/access_record/register", json={"username": "testuser", "password": "1234567"}) printS(res.status_code, res.json())  只要返回是201 就是代表注册新用户成功了
+
+登录并获取cookie:   s = requests.Session()
+                    res  = s.post("http://localhost:5000/access_record/login/password", json={"username": "testuser", "password": "1234567"})
+                    print("状态码:", res.status_code)
+                    print("返回内容:", res.json())
+                    print("服务器返回的 cookie:", s.cookie.get_dict())
+
+如果我们可以注册成功新的用户和密码之后一直还是测试不了cookie 并且报错TypeError: Expected a string value
+File "jwt/utils.py", line 22, in force_bytes
+  raise TypeError("Expected a string value")  就是证明我的JWT SECRET_KEY是空的 不是字符串 所以导致jwt.encode()直接崩溃服务器返回500，在这样的情况下我们可以对config.py 或者是 app.py 文件里面的 config 进行生产环境上的配置 顾名思义就是给他一个默认的值来对cookie 进行测试。
+  解决方案：给Flask配置一个固定的 SECRET_KEY 我们可以在app = Flask(__name__)后面加上这行，给一个固定的密钥（开发环境用）app.config['SECRET_KEY'] = 'dev-secret-key-for-testing-only'
+  如例：>>> import requests
+>>> s = requests.Session()
+>>> login_res = s.post("http://localhost:5000/access_record/login/password", json={"username": "testuser", "password": "1234567"})
+>>> print("登录状态:", login_res.status_code)
+登录状态: 200
+>>> print("登录返回:", login_res.json())
+登录返回: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE3Nzg5MTk2MTgsInR5cGUiOiJhY2Nlc3MifQ.zUoSD-0l_9cWSFATlIocR62XD7gNhz_yygerpvQHYqQ'}
+>>> print("服务器返回的 Cookie:", s.cookies.get_dict())
+服务器返回的 Cookie: {'refresh_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE3Nzk1MjM1MTgsInR5cGUiOiJyZWZyZXNoIn0.HNWbAIB-sJSCsvYPncGQ2vlHuU4QbYAIjfM6hgpCLCk'}   这就是测试成功的样子
+
+而且我们正确的配置顺序是：先加载 config.py 里的配置 env = os.environ.get('FLASK_ENV', 'development')
+app.config.from_object(config[env])
+
+# 再手动设置开发环境的默认密钥，覆盖 config.py 里的空值
+if env == 'development':
+    app.config['SECRET_KEY'] = 'dev-secret-key-for-testing-onlyS'
+
+    开发环境下 手动配置不会被覆盖， 生产环境下，还是会用 config.py里面的配置不会被覆盖。
+
+    此外，我们必须保证我们的config.py 里面确保 development环境里有 SECRET_KEY = 'dev-secret-key-from-config' 这必须有值 如果这里是空的或者写的是 os.environ.get('SECRET_KEY')但没设置环境变量，就会变成None，导致报错
+
+如果 jwt.encode()必须传入字符串类型的密钥，传None就会直接抛出TypeError: Expected a string value
+
+路由直接挂下根目录下面是不规范的 我应该使用更规范的写法RESTful风格
+    用户相关：/api/user/login, /api/user/register
+    业务相关：/api/records/list, /api/records/detail
+
+
+url = 域名 + 注册蓝图的前缀 + 定义蓝图的前缀 + 函数路由
+
+
