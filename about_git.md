@@ -27,6 +27,7 @@ git push 把提交推到github
 遇见以上或者类似的问题时候解决办法就是：重新尝试命令git push -u origin main 如果成功就是临时网路问题
 或者 检测仓库地址和权限：git remote -v 假如地址不对可以重新设置地址：git remote set-url origin xxxxxx
 
-
-
-
+我已经在vscode里修改了文件 需要把新的内容也更新到Git仓库 是这样操作的：
+    git add .
+    git commit -m ""
+    git push

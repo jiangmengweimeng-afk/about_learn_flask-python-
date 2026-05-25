@@ -1,3 +1,4 @@
+import markdown
 Token本身是无状态的 
 token是通过Refresh Token刷新token的新功能
 
@@ -159,4 +160,23 @@ if env == 'development':
 
 url = 域名 + 注册蓝图的前缀 + 定义蓝图的前缀 + 函数路由
 
+allow_expired=True表示即使refresh_token过期了 只要签名时也可以解出数据
+
+get_jwt()用户获取当前令牌的完整payload，包括jti,exp等，get_jwt_identify()只获取用户标识
+JWT只是编码不是加密 所以不要在JWT的payload里面存储敏感信息密码、身份信息等
+
+
+如果运行一个文件时候出现如下所示的报错，那么我们可以考虑这个虚拟环境和安装包的python的版本不同
+Traceback (most recent call last):
+  File "app01.py", line 10, in <module>
+    from access_record.views import access_record
+  File "C:\Users\GK\Desktop\work\learn\app\access_record\views.py", line 2, in <module>
+    from flask_jwt_extended import decode_token, create_access_token, create_refresh_toen
+ModuleNotFoundError: No module named 'flask_jwt_extended'
+如果使用了虚拟环境的话 我们要在vscode的右下角python那里选择带有 ./venv/...或者是 ./.venv/.. 路径的那个 这里既然提到了虚拟环境我们可以考虑如何几乎哦虚拟环境的命令在windows里面：
+venv/Scripts/activate （激活） deactivate （退出虚拟环境）
+
+venv 标记：vscode 会自动识别项目中的虚拟环境，并打上 venv 标签。这通常意味着我的项目依赖是安装在带有venv标签的独立环境中而不是在全局环境里面
+
+我们可以在所选的虚拟环境的终端下运行 pip list 命令查看是否有我们需要的 库 如果没有我们可以执行 pip install flask flask-jwt-extended 命令 pip list 可以查看到我们需要的库就是成功
 
