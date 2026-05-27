@@ -27,3 +27,4 @@ Windows release manifest	Windows	Install with 'py install 3.14'	15.1 KB	.sigstor
 - 环境变量是有什么作用，为什么我在任意的目录下输入一个python 他就能打开python
 - 如何多个python版本共存
 - window上设置完环境变量后，为什么需要在当前终端里不生效
+- 看下这三个配置有什么区别![alt text](imgs/some_problem.image.png)
