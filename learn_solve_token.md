@@ -203,3 +203,15 @@ PyJWT 和 Flask-JWT-Extended 的区别 我们可从下面几个方面考虑：
     - 需要学习ORM框架
     - 调试困难生成的SQL可能不够优化
  ![alt text](imgs/learn_solve_token.image-1.png)
+
+ ### value 为什么要设置成 ''
+ - 避免None值导致的错误
+  ![alt text](imgs/learn_solve_token.image-3.png)
+ - 表示空内容但非缺失，这里要补充我不熟悉的内容（None通常表示没有值或者缺失，''表示有值但是为空字符串）
+  ![alt text](imgs/learn_solve_token.image-4.png)
+ - 使用空字符串主要是为了类型安全和代码健壮性，避免处理None时的异常，同时明确表达”这是空值“而非”值不存在“。
+ - value='': 显式低将cookie值置空，告诉浏览器”把这个清空“
+ - expires=0：明确的告诉浏览器这个Cookie立即过期。这比单纯设置max_age=0 兼容性更好，能确保浏览器彻底清楚它。
+
+### 失效时间的区别
+- expires=0 and max_age=0 都可以工作，但在清楚Cookie时，expires=0 代表1970年1月1日时HTTP协议中通用的”立即失效“标准，兼容性最好
