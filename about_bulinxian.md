@@ -46,3 +46,24 @@
   ![alt text](imgs/about_bulinxian.image-4.png)
 - 2.2 标准差
   - 标准差衡量数据偏离平均值的程度，波动越大，标准差和越大，布林带越宽
+  
+## 什么是 Pandas DataFrame
+- python 数据分析库 Pandas 中最核心、最常用的数据结构。可以将其直观的理解为一个嗲标签的二维表格，它在概念上非常类似于 Excel工作表或者SQL数据库表
+- 数据操作：支持添加、删除行列、重命名、排序、数据合并和重塑等
+- 数据导出：处理完成的数据可以通过 to_csv() 或者 to_excel()等方法轻松保存回本地文件
+- 查看基本信息：使用 df.shape获取行列维度，df.head()预览前几行，df.info()查看数据类型和缺失值情况，df.describe()获取描述性统计摘要
+
+### 核心结构与组成元素
+- 它是一个二维的、大小可变的、支持异构数据（即不同列可以有不同的数据类型）的表格结构。它由三个核心组件构成：
+  - 行索引（index）每一行的标签用于唯一标识一行数据，默认是从0开始的整数，但也可以自定义为字符串、日期等
+  - 列索引（Columns）每一列的标签即列名用于唯一标识一列，每一列代表一个变量或者特征
+  - 数据值（Values）表格中实际存储的数据，其底层通常是一个二维的Numpy数组
+
+### 创建 DataFrame的常见方式
+- 核心函数 pd.DataFrame() 
+- 从字典创建，字典的key值自动化成列名，对应的值（列表、数组等）成为列数据
+  ![alt text](imgs/about_bulinxian.image-5.png)
+- 从嵌套列表，列表中的每个子列表代表一行数据，需要手动指定列名
+  ![alt text](imgs/about_bulinxian.image-7.png)
+- 从外部文件读取是实际应用中最常用，支持读取CSV、Excel、SQL数据库等多种数据源
+  ![alt text](imgs/about_bulinxian.image-8.png)

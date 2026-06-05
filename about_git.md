@@ -12,6 +12,9 @@
 - cat ~/.gitconfig 查看之前有没有保存过远程仓库信息
 - git diff --cached/ git deff --staged 查看暂缓区的修改
 - cat .git/config 查看git 配置
+- pip show akshare 查看akshare是否安装
+- pip install upgrade 升级到最新版本
+- pip list | findstr akshare 查看所有已经安装的包
 
 - cd .. 其中.. 是退出到上一个目录 一个 . 代表一个级别的目录
 
@@ -98,5 +101,6 @@
 - git commit ~ （如果确认提交我们要进行的一步）
 - git restore --staged app/logs/app.log （如果不想要这个修改 我们从暂缓区移除）
 - git restore app/logs/app.log （恢复工作区的文件） 之后推送
+
 
 
