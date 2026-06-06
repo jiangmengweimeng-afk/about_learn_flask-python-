@@ -8,7 +8,8 @@
 
 ### 什么是matplotlib.pyplot 
 - 它是绘图库的一个子模块，专门负责画图，可以设置坐标、坐标轴标签、图例等
-- plt.plot() 拆柱图
+  ![alt text](imgs/about_bulinxian.image-13.png)
+- plt.plot() 拆柱图 import matplotlib.pyplot as plt
 - plt.bar() 柱状图
 - plt.scatter() 散点图
 - plt.hist() 直方图
@@ -67,3 +68,24 @@
   ![alt text](imgs/about_bulinxian.image-7.png)
 - 从外部文件读取是实际应用中最常用，支持读取CSV、Excel、SQL数据库等多种数据源
   ![alt text](imgs/about_bulinxian.image-8.png)
+- 在Pandas中，sort_index()方法默认按索引升序排列，若要实现降序排序，只需将ascending参数设置False，其核心逻辑是ascending=True表示”从小到大“，ascending=False表示"从大到小",该参数适用于所有排序场景，包括单机索引、多级索引、按行或者按列排序。
+## 关于akshare 
+- akshare 是一个封装成统一的python函数
+  ![alt text](imgs/about_bulinxian.image-9.png)
+- 数据格式：所有的接口返回的都是 Pandas DataFrame，这意味着我拿到数据之后可以直接用pandas做分析，用 Matplotlib做图表
+- pd.to_datetime()是Pandas提供的[日期/时间解析工具]，能把字符串、整数等格式的”日期类数据“统一成标准的datetime64类型，转换后才能高效完成时间序列分析（重采样、滑动窗口、时间对齐等）
+  ![alt text](imgs/about_bulinxian.image-12.png)
+- set_index('日期') Pandas的DataFrame默认索引是数字序号，但在时序分析中，用[日期]作为索引更合理，这样的目的语义更清晰操作更高效
+- inplace=True：节省内存不需要额外创建一个新DateFrame，对大数据集友好；代码简洁，后续直接用stock_df就能拿到‘索引已设为日期’的结果，直接修改原DataFrame，不返回新的对象返回值为None
+- inplace=False：不修改原DataFrame，而是返回一个新的DataFrame原数据不变
+### 命名规则
+- 命名模式：{资产类型}_{市场}_{具体数据}_{数据源}
+  ![alt text](imgs/about_bulinxian.image-10.png)
+- 历史数据参数含义：
+  - symbol: 股票代码
+  - period: 周期，"daily"/"weekly"/"monthly"
+  - start_data\end_data: 格式"20260605"
+  - asjust: 复权类型，""(不复权) / "qfq"(前复权) / "hfq"(后复权)
+- 返回的是一个 DataFrame，可以看到日期、开盘、收盘、最高、最低、成交量等列
+  ![alt text](imgs/about_bulinxian.image-11.png)
+

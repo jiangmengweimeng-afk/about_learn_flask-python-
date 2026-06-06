@@ -33,6 +33,18 @@
   - python setup.py install 这一步真正把模块注册到python环境里面 我只进行了下载代码 没有执行安装脚本
 ## 解决方案
 ### 重新执行安装命令
-- 1. 打开终端，确保我的 vscode 终端已经激活了我之前选好的 VmessAction 环境
-- 2.进入目录使用cd 命令进图我的git clone 下来的那个文件夹
-- 3.执行安装运行命令 pip install / 老项目 python setup.py install
+- 1. 打开终端，确保我的 vscode 终端已经激活了我之前选好的 VmessAction 环境，这一步时确保终端激活了正确的python环境，装到正确的地方
+- 2.进入目录使用cd 命令进图我的git clone 下来的那个文件夹，这是为了运行项目代码 这一步解决的时运行时候可以找到项目文件
+- 3.执行安装运行命令 pip install / 老项目 python setup.py install，这一步解决的是把代码变成可以导入的库
+  ![alt text](imgs/common_mistakes.image-2.png)
+
+## pip
+- 一定要注意环境一致性，不管是在Windows命令提示符cmd里输入命令还是vscode或者git bash都要注意环境一致性
+### 一致性解决办法
+![alt text](imgs/common_mistakes.image-6.png)
+- 在vscode里面按 Ctrl + ` 打开终端，不要着急执行命令，看一眼命令提示符，如果是(env) or (.venv)开头说明我是在虚拟环境里面。为了保险起见，直接在我写代码的(.py)文件标签上右键，选择"在终端中运行python文件"。之后把命令修改一下，把python xxx.py 替换成 pip intall mplfinance 再回车键执行，这样就可以保证百分之百装对了地方
+  ![alt text](imgs/common_mistakes.image-3.png)
+  ![alt text](imgs/common_mistakes.image-4.png)
+- 关于安装是否成功输入： import mplfinance as mpf print(mpf.__version__)  如果可以打印出版本号，就是安装成功了
+- python -m pip install mplfinance 更推荐这个安装方式，python -m pip 可以明确地告诉python解释器，去找属于你的pip 工具来安装。这样的好处是可以避免我的电脑里有多个python版本时候，pip命令装到了错误的环境里面。
+  ![alt text](imgs/common_mistakes.image-5.png)
