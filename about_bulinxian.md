@@ -14,6 +14,13 @@
 - plt.scatter() 散点图
 - plt.hist() 直方图
   ![alt text](imgs/about_bulinxian.image.png)
+- figsize=(wight, highth)
+  - plt.figure(figsize=(14, 5)) 时间序列数据，如股票价格 宽一点呈现宽扁形展现趋势
+  - plt.figure(figsize=(8, 6)) 分布图如直方图 方正一点接近正方形
+  - plt.figure(figsize=(6, 8)) 对比图箱线图，可以窄一些 呈现高瘦型
+  ![alt text](imgs/about_bulinxian.image-14.png) 
+  - stock_df['close'].pct_change() * 100 这个乘以100是为了将收益率转换为百分比，让数据更直观
+  - bins的含义：把数据分成多少个“桶”，每个桶的高度=落在该区间的数据点数量。bins=5就是分成五个区间
 
 ### 布林线完整示意图
 - 1.0 布林带宽图：
@@ -78,6 +85,7 @@
 - set_index('日期') Pandas的DataFrame默认索引是数字序号，但在时序分析中，用[日期]作为索引更合理，这样的目的语义更清晰操作更高效
 - inplace=True：节省内存不需要额外创建一个新DateFrame，对大数据集友好；代码简洁，后续直接用stock_df就能拿到‘索引已设为日期’的结果，直接修改原DataFrame，不返回新的对象返回值为None
 - inplace=False：不修改原DataFrame，而是返回一个新的DataFrame原数据不变
+- akshare 返回的列默认是：['日期', '开盘', '收盘', '最高', '最低', '成交量', '振幅', '涨跌幅', '涨跌额', '换手率']
 ### 命名规则
 - 命名模式：{资产类型}_{市场}_{具体数据}_{数据源}
   ![alt text](imgs/about_bulinxian.image-10.png)

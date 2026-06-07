@@ -23,4 +23,4 @@
 ![alt text](imgs/sqlalchemy.image-4.png)
 - 删除单个对象时候先查询到想要的对象然后再进行删除：product = session.query(Product).filter(Product.name == 'Alice').first()
 - session.delete(product)
-- session.commit()  
+- session.commit() 
