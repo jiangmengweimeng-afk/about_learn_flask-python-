@@ -58,4 +58,12 @@
 ### 关于使用上下文管理器我容易搞混淆的地方
 - 如果在命令行使用上下文管理器写 with 语句很难完美地表达 “换行 + 缩进”, 就会报 Syntax Error 的错误，使用 push():手动把应用上下文“推”进去（相当于进入 with 模块）；pop()：手动把应用上下文“弹”出来（相当于离开 with 模块）。
 - python -c "from app01 import db, app; ctx = app.app_context(); ctx.push(); db.create_all(); ctx.pop(); print('数据库表检查/创建完成！')" 这个命令是绝对可以跑通的
-  
+
+### 关于一些测试问题老出错的方面
+- 查看文件是否有重复的，如果有的话及时整理
+- 查看导入的路径是否因为文件重复而手动没及时纠正路径
+https://chat.deepseek.com/a/chat/s/3774d5e8-a253-45d0-9d43-94b9b5f85fe9
+
+### about api 接口返回格式
+- 我的api接口统一使用json格式返回，并且HTTP状态码遵循RESTful规范成功是200， 所有响应都包含统一的code状态码，message提示信息和data业务数据这三个外层字段
+
