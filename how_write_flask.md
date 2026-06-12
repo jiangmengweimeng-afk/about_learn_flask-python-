@@ -74,3 +74,6 @@
             "username": payload.get("username")
         } 
 - 如上所示的代码 为什么"user_id": payload.get('sub') 为什么不是user_id, 而是sub是因为在python的JWT里面Sub代表该JWT所面向的用户
+  
+### 如何自己写一个框架呢
+- 首先可以
