@@ -60,6 +60,18 @@
 - 数据操作：支持添加、删除行列、重命名、排序、数据合并和重塑等
 - 数据导出：处理完成的数据可以通过 to_csv() 或者 to_excel()等方法轻松保存回本地文件
 - 查看基本信息：使用 df.shape获取行列维度，df.head()预览前几行，df.info()查看数据类型和缺失值情况，df.describe()获取描述性统计摘要
+### 使用pd检查空值
+- 检查是否有任何空值
+  - if df['close'].isnull().any():
+    - print('存在空值')
+  - else:
+    - print('有效且没有空值')
+- 获取空值数量
+- null_count = df['close'].isnull().sum()
+- print(f'close列空值数量:{null_count}')
+- 检查是否全部有效
+- if df['close'].notnull().all():
+  - print('close列完全有效')
 
 ### 核心结构与组成元素
 - 它是一个二维的、大小可变的、支持异构数据（即不同列可以有不同的数据类型）的表格结构。它由三个核心组件构成：
