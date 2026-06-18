@@ -5,7 +5,13 @@
 ### 什么是pandas
 - 它是专门处理表格型数据的库，相当于python的excel，用于处理股票数据、销售记录、实现数据等表格
 - 核心数据结构: DataFrame（二维表格）、Series（一列数据），能做CSV/Excel、筛选列行、缺失值处理、分组(group by)、合并表、时间序列处理，是数据分析的基本工具
-
+### 关于K线图
+- K 线图需要'Open'、'High' 首字母需要大写
+- mpf.plot() 绘制，数据列为['Open', 'Close', 'Low', 'High', 'Volume']
+- type='candle'指定绘制蜡烛图（开盘价、收盘价、最高价、最低价四个数据点合称为一根蜡烛）
+- volume=True 在下方绘制成交量柱状图，将成交量作为辅助信息暂时在下方的子图中，帮助分析价格变动是否有量能配合
+- title='K-line chart'顾名思义 就是设置标题关于K线图
+- savefig='kline.png'将图片保存为文件
 ### 什么是matplotlib.pyplot 
 - 它是绘图库的一个子模块，专门负责画图，可以设置坐标、坐标轴标签、图例等
   ![alt text](imgs/about_bulinxian.image-13.png)
@@ -95,6 +101,7 @@
 - pd.to_datetime()是Pandas提供的[日期/时间解析工具]，能把字符串、整数等格式的”日期类数据“统一成标准的datetime64类型，转换后才能高效完成时间序列分析（重采样、滑动窗口、时间对齐等）
   ![alt text](imgs/about_bulinxian.image-12.png)
 - set_index('日期') Pandas的DataFrame默认索引是数字序号，但在时序分析中，用[日期]作为索引更合理，这样的目的语义更清晰操作更高效
+### df.rename(columns={...}, inplace=True/inplace=False)
 - inplace=True：节省内存不需要额外创建一个新DateFrame，对大数据集友好；代码简洁，后续直接用stock_df就能拿到‘索引已设为日期’的结果，直接修改原DataFrame，不返回新的对象返回值为None
 - inplace=False：不修改原DataFrame，而是返回一个新的DataFrame原数据不变
 - akshare 返回的列默认是：['日期', '开盘', '收盘', '最高', '最低', '成交量', '振幅', '涨跌幅', '涨跌额', '换手率']
@@ -109,3 +116,17 @@
 - 返回的是一个 DataFrame，可以看到日期、开盘、收盘、最高、最低、成交量等列
   ![alt text](imgs/about_bulinxian.image-11.png)
 
+### 关于折线图
+- 用plt.plot绘制data.index(data)作为横轴，data['close']收盘价作为纵轴，能直观展示价格随时间的变化。如果想使效果更清晰，可以使用12:4 的 x y的数值更适合暂时时间序列数据的趋势
+### 关于直方图
+- 用 sns.histplot 绘制 data['return'] 收益率的分布
+- .dropna() 去掉缺失值，因为第一天没有历史收益价格所以为NaN，如果不 dropna, histplot可能会报错或者绘制异常
+### 箱线图
+- 用 sns.boxplot 绘制 data['return'] 收益率的箱线图，纵轴为收益率，横轴无特定分组为单变量箱线图
+- sns.boxplot 用五个统计量(最小值，下四分位数，中位数，上四分位数，最大值)概括数据分布，能快速识别异常值离群点和数据的离散程度。并且与 sns.histplot 相互补充，sns.histplot 展示整体形态，箱线图暂时统计特征
+  ![alt text](imgs/about_bulinxian.image-15.png)
+### 如何在不同的场景下选择不同的图表
+- 想看单组数据的整体分布形态 sns.histplot(df['data], bins=30, kde=True), kde=True 叠加和密度估计曲线，这是一条平滑的曲线，代表数据的概率密度分布，比直方图更直观地现实“数据集中在哪个区间”。如果曲线越高，该值附近的数据越密集。
+- 想看多组数据的简洁对比，并且检测异常值  sns.boxplot(data=df, x='category', y='value'), 箱子高度计算（IQR=Q3-Q1），代表中间百分之五十数据的散布程度。 whisker: 通常是 Q1 - 1.5*IQR and Q3 + 1.5*IQR 表示正常数据范围。一般箱线图用于对比不同组别的数值分布。
+- 想看多组数据的精细分布形态 sns.violinplot(data=df, x='catagory', y='value')， 数据具体集中在哪个区间，而不是像 sns.histplot只看中位数和四分位数时，violin可以看出一组相对集中在低消费。
+- 相对比多组数据的密度曲线，看偏移和重叠 sns.kdeplot(data=df x='value', hue='catagory', file=True, alpha=0.3)  hue='catagory'按catagory列分组，用不同颜色区分组别的密度曲线。同时对比两个或者更多组的分布形态，可以直观的看出哪组数据更集中（曲线更尖）；哪组数据更分散（曲线更平缓）；不同组的峰值位置（众数）差异；分布是否偏移、重叠。
