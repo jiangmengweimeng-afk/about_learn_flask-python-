@@ -316,4 +316,13 @@ datetime: 今天做到了遇见问题都搜索 这是日常 但是今天都给�
 - 17:00-18:00 去了所里 看玩手机时20min 
 - 19:33 咱妈调的mashicai 我尝了几口 下午次了西瓜胃有点疼 然后躺沙发给咱妈看了大概十五分钟的电视
   ![alt text](imgs/day_by_day.64f1af995aa639fc7eb3c967cdc0bfc5.jpg)
-  
+
+### 26.6.18
+- 9:27 醒了 昨晚下雨了 睡得可舒服
+- 11:30 打开电脑
+- 16:00 多吃的饭 不知道几分 忘了看了
+- 18:13 挂了电话 去洗了澡 所里
+- 19:50 打开电脑
+- 20:32  给咱爸打电话没接 忘了咱爸上的夜班了
+  ![alt text](imgs/day_by_day.bff7cae8afb85484d29f403846e79540.jpg)
+  ![alt text](imgs/day_by_day.ae59b6e0ebab600dce4d2d1e0f7e0bf4.jpg)
