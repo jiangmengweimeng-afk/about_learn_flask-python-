@@ -412,5 +412,19 @@ datetime: 今天做到了遇见问题都搜索 这是日常 但是今天都给�
 19:47 打开电脑
 ![alt text](imgs/day_by_day.5e60755be6f6d007e31053ad3325f388.jpg)
 
+---
+
+### 26 6.27
+7:29 醒
+10:00 打开电脑
+14:17 做面条
+15:00 打开电脑
+16:30-17:00 睡了，醒了咱妈带了胡辣汤，喝了打开了电脑大概用了ten min 
+17:31 去蹲了厕所 然后洗了澡 吃了饭 喂了小猫
+19:59  打开电脑
+![alt text](imgs/day_by_day.c735fea20d0a510192d01086bda0ba28.jpg)
+![alt text](imgs/day_by_day.330deae1543c06ec810ee11a5b1f4e34.jpg)
+![alt text](imgs/day_by_day.25885587d74258d448c93770d1fa39eb.jpg)
+![alt text](imgs/day_by_day.2bfeaf969d58a620998bff15b8c694e6.jpg)
 
 

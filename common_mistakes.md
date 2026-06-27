@@ -97,4 +97,9 @@ https://chat.deepseek.com/a/chat/s/3774d5e8-a253-45d0-9d43-94b9b5f85fe9
 `基类：` **声明式基类** `Base`式所有模型类的父类，通过继承它来定义表结构。
 `模型:` **数据模型**或者**ORM模型**
 
+### nullable=False
+
+在数据库和ORM对象关系映射，如SQLAlchemy中， `nullable=False` **意味着该字段在数据库层面不允许为`NULL`空值或者未知值。** 当在代码中尝试存入空值`None`时候, 触发的错误是**数据库完整性错误或者数据验证错误。** 
+- `nullable=False:` 该字段绝对不能是空`None`
+
 
