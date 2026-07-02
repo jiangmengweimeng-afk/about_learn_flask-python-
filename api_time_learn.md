@@ -95,3 +95,8 @@
 ### 类定义错误
 
 在Pydantic中， 所有数据模型类必须继承自`BaseModel`或者它的子类， 否则Pydantic的验证、序列化功能完全不会生效
+
+---
+
+`from_attributes = True`**的含义（以前是`orm_mode`）：**
+- 它的作用是：允许Pydantic从SQLAlchemy模型对象自动提取数据，如果没有这个配置，每次都要手动把模型的字段复制到Schema。
