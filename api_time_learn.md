@@ -100,3 +100,10 @@
 
 `from_attributes = True`**的含义（以前是`orm_mode`）：**
 - 它的作用是：允许Pydantic从SQLAlchemy模型对象自动提取数据，如果没有这个配置，每次都要手动把模型的字段复制到Schema。
+
+如果想自定义类，不继承父类，但是一定要继承`BaseModel`，因为`BaseModel`是**pydantic的基类**，它提供了所有核心功能：
+- 数据验证（类型检查）
+- 自动序列化/反序列化
+- 字段默认值处理
+- 错误提示
+如果没有继承`BaseModel`，则定义的类是普通的Python类，没有功能。
