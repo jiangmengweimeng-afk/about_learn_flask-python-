@@ -107,3 +107,18 @@
 - 字段默认值处理
 - 错误提示
 如果没有继承`BaseModel`，则定义的类是普通的Python类，没有功能。
+
+---
+
+### exclude_unset=True
+
+**只保留在实例化时由用户显式设置的字段，** 忽略未设置的字段，即使该字段有默认值，通过`pydantic`的`exclude_unset`标记变化，再用`setattr`动态应用到数据库对象上。
+- 如果使用了`setattr`修改ORM对象后，通常还要用`session.commit()`才可以保存到数据库，也可以用SQLAlchemy的`update`使代码更简洁：`categroy.query.filter_by(id=category.id).update(category_update.dict(exclude_unset=True))`
+
+**为什么要设置`exclude_unset=True`？**
+好处可以解决**API部分更新**的痛点：
+- **避免覆盖默认值：** 如果不用`exclude_unset=True`，而直接使用`dict()`，那么没传入的字段回被设置未`None`或者默认值，不小心把数据库里面的旧数据清空了。这个写法可以保证**没传入的字段保持原样**
+  
+- **保持代码灵活性：** 假如后来在`UpdateCategory`类里面新增一个字段，这段循环代码**完全不需要改动**， 它会自动遍历新字段并且赋值。
+
+- **动态属性注入**
