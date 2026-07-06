@@ -537,3 +537,19 @@ datetime: 今天做到了遇见问题都搜索 这是日常 但是今天都给�
 19:50 咱爸打了电话 
 ![alt text](imgs/day_by_day.b23a8ea30f162cc6ee0c16885987046f.jpg)
 ![alt text](imgs/day_by_day.105c197283777d9acba967ad6240b52a.jpg)
+
+---
+
+### 7.6
+7:24 醒
+8:48 打开电脑
+13:07 左右咱妈回来
+13:40 去了所里，然后回来了咱妈在看电脑 我看了会手机 大概到14:30 咱妈还是非得看完这一集
+15:00 咱妈给碗送厨屋 我切了两个甜瓜 消耗十min就打开了电脑
+17:07 饿了我煮了饺子 
+17:45 左右打开电脑
+19:00 咱妈俺俩祷告去了 然后我洗了澡 出来咱爸大了电话 8 分钟
+20:15 打开电脑
+![alt text](imgs/day_by_day.e5803971c6e4765d6fcc0068295662eb.jpg)
+![alt text](imgs/day_by_day.2aebe8e2c328110c6dda9a756708dae0.jpg)
+![alt text](imgs/day_by_day.d920f99cb3220b6de3afa019f1a067fb.jpg)

@@ -102,4 +102,32 @@ https://chat.deepseek.com/a/chat/s/3774d5e8-a253-45d0-9d43-94b9b5f85fe9
 在数据库和ORM对象关系映射，如SQLAlchemy中， `nullable=False` **意味着该字段在数据库层面不允许为`NULL`空值或者未知值。** 当在代码中尝试存入空值`None`时候, 触发的错误是**数据库完整性错误或者数据验证错误。** 
 - `nullable=False:` 该字段绝对不能是空`None`
 
+---
 
+### scalar() 和 scalars() 得区别 .one() and .scalar()
+在python得上下文中，尤其是**Pydantic**和**FastAPI**生态中，`scalar()`和`scalars()`通常指的是SQLAlchemy中`Result`对象得两个方法。
+- `scalar()`返回**单个值**（第一个结果得第一个列）
+- `scalars()`返回**一个迭代器，**包含所有结果得**第一列值**
+  
+- `.one()/one_or_none():`严格要求结果必须**有且只有一行，**否则会报错
+- `.scalar():`即使结果有**0行**（返回`None`）或有**多行**（返回第一行），都不会报错
+
+--- 
+
+### **xxxxx
+
+![alt text](imgs/common_mistakes.image-8.png)
+
+在python中，`**`在函数调用时候扮演**字典解包**的角色。
+`new_record = Record(**record_data)`以这行代码为例
+**核心含义：**将字典`record_data`的键值对，转换为**关键字参数**传递给`Record`类的`__init__`构造方法。
+- `**`和`*`的区别：`*`用于解包**列表/元组**为位置参数，`**`用户解包**字典**为关键字参数。
+- **不能有多余的键**
+- **键名必须匹配**
+
+**两个容易混淆的星号**
+
+| 符号 | 出现位置 | 含义 |
+| --- | --- | --- |
+| `**dict` | **函数调用时** | **解包：** dict到关键字参数 |
+| `**kwargs` | **函数定义**时候 | **打包：** 多余的关键字参数到字典** |
