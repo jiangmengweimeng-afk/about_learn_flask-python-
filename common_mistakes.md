@@ -80,6 +80,8 @@ https://chat.deepseek.com/a/chat/s/3774d5e8-a253-45d0-9d43-94b9b5f85fe9
 
 在python异步编程里，**“async/await语法的常见使用场景”** 或 **“协程（corouteine）的常见操作”**
 
+**关于异步函数：** 如果异步函数内部有`await`说明这个函数内部可能会有`await`操作（比如异步数据库查询），不会阻塞主线进程，提高并发性能。
+
 ---
 
 ### the difference between yield and return zhuanye shuyu de jieshi
@@ -134,6 +136,27 @@ https://chat.deepseek.com/a/chat/s/3774d5e8-a253-45d0-9d43-94b9b5f85fe9
 
 ---
 
-- **路由：**URL路径与处理函数的映射关系
-- **端点：**一个具体的API接口，如`GET/categories`
-- **依赖注入：**将`get_db()`注入到路由函数中，获取数据库会话
+- **路由：** URL路径与处理函数的映射关系
+- **端点：** 一个具体的API接口，如`GET/categories`
+- **依赖注入：** 将`get_db()`注入到路由函数中，获取数据库会话
+
+---
+
+### APIRouter 和 Blueprint 的区别
+| 维度 | FastAPI路由注册 | Flask蓝图 |
+| --- | --- | ---|
+| **本质** | APIRouter是一个对象，通过`include_router`组合 | 蓝图是一个可插板的模块，通过`register_blueprint`注册 |
+| **层级** | 支持多层嵌套（v1>records>具体路由）| 支持一层或有限嵌套 |
+| **前缀** | 在注册时通过`prefix`参数指定 | 在注册时通过`url_prefix`参数指定 |
+| **依赖注入** | 原生支持，强大且类型安全 | 需要额外插件或手动实现 |
+| **OpenAPI** | 自动生成，支持标签分组 | 需要Flask-RESTX等扩展 |
+| **异步支持** | 原生异步支持 | 需要额外配置 |
+
+### 分离路由的好处
+好处 | 说明
+--- | ---
+**单一职责** | 每个文件负责一个实体的API接口
+**易于维护** | 修改`Category`接口时，只需要改`categories.py`
+**避免冲突** | 多人协助时，不会在同一个文件里产生冲突
+**代码清晰** | 。。。。
+**便于测试** | 。。。。
