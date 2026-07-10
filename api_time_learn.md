@@ -154,3 +154,61 @@
 - `le=100:` 表示最多为100条，这样可以防止客户端请求超大页码或超大数据量，保护服务器性能
 - `Depends:` 是FastAPI的**依赖注入** 机制， `db: AsyncSession = Depends(get_db)`FastAPI 会在请求进来时自动调用`get_db`，把得到的`AsyncSession`赋值给`db`。
   - 这样做的好处：解耦、便于测试、会自动管理会话生命周期，比如请求结束后自动关闭。
+
+---
+
+## 功能需求
+
+### 1.1 活动管理类型
+
+| 接口 | 方法 | 说明 |
+| --- | --- | --- |
+| `/categories` | GET | 获取所有活动类型 |
+| `/categories` | POST | 创建活动类型 |
+| `/categories/{id}` | PUT | 修改活动类型 |
+| `/categories/{id}` | DELETE | 删除活动类型（如果有关联记录则软删除）
+
+**字段：**
+- `id:` 主键
+- `name:` 类型名称，唯一
+- `color:` 颜色标识（可选，便于未来可视化）
+- `icon:` 图表标识`Optional`
+- `created_at:` 创建时间
+- `is_deleted:` 软删除标记
+
+### 1.2 时间记录管理
+
+| 接口 | 方法 | 说明 |
+|--- | --- | --- |
+| `/entries` | GET | 查询时间记录（支持按日期、类型筛选） |
+| `/entries` | POST | 创建时间记录 |
+| `/entries/{id}` | PUT | 修改时间记录 |
+| `/entries/{id}` | DELETE | 删除时间记录 |
+| `/entries/today` | GET | 获取今日所有记录 |
+
+**字段：**
+- `id:` 主键
+- `category_id:` 关联活动类型
+- `start_time:` 开始时间（datetime）
+- `end_time:` 结束时间（datetime, Optional）
+- `duration:` 持续时长（min, 自动计算或手动填入）
+- `note:` 备注（Optional）
+- `date:` 记录所属日期（date）
+- `created_at:` 创建时间
+- `updated_at:` 更新时间
+
+### 3.3 查询参数
+`GET /entries` 支持的查询参数
+- `date:` 指定日期（YYYY-MM-DD）
+- `start_date` / `end_date:` 日期范围
+- `category_id:` 按类型筛选
+- `page` / `page_size:` 分页（默认 page=1, page_size=20）
+
+### `response_model`的省略
+- 如果不指定，FastAPI 会直接返回函数return 的原始对象
+- 但明确指定这样可以：
+  - 自动过滤掉多余字段
+  - 自动生成OpenAPI 文档
+  - 自动做类型校验
+
+

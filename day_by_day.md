@@ -586,4 +586,18 @@ datetime: 今天做到了遇见问题都搜索 这是日常 但是今天都给�
 19:30 吃了玉米 十五min 
 ![alt text](imgs/day_by_day.686aae44591538eb572d2c8fe2e1f90f.jpg)
 
+---
+
+### 7.10
+7:20 起床
+8:48 打开电脑
+10:20 去了鄢陵买了点卫生巾和火锅丸子
+12:20 到家
+12:30 打开电脑
+18:00 左右去做饭 大概 没看时间
+19:30 吃完 打开电脑
+19:52 给咱爸打了电话19min 
+![alt text](imgs/day_by_day.d2ed309ab85374e129450d5cf9441ca7.jpg)
+![alt text](imgs/day_by_day.580c59178d171295d27b374f509a9b02.jpg)
+![alt text](imgs/day_by_day.16ae6cf2de05aeccfdf6811392d7cd75.jpg)
 
