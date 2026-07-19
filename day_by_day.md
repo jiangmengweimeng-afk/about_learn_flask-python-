@@ -679,3 +679,16 @@ datetime: 今天做到了遇见问题都搜索 这是日常 但是今天都给�
 16:15 咱妈俺俩去鄢陵了，回来了领着小狗出去了
 19:50 打开电脑
 ![alt text](imgs/day_by_day.4a8d7aaa458118ffd79a3da3da2ff7a5.jpg)
+
+### 7.18
+7:39 醒
+10:20 吃完打开电脑
+12:00 多 咱妈修牙回来买的西瓜 吃了  消耗15min 然后带小狗去河堤了
+18:29 左右做饭 吃了 然后去了所里 然后洗了澡出来之后停网了
+![alt text](imgs/day_by_day.add64419e5b99156de506a8c20ca4832.jpg)
+![alt text](imgs/day_by_day.9fe168b2aa5e0ee38e1da35ec7e365bf.jpg)
+![alt text](imgs/day_by_day.46023f435de8e2bbd7a449baed33aba2.jpg)
+
+### 7.19 
+13:00 多来网
+20:00 给咱爸打了个电话
