@@ -705,3 +705,16 @@ datetime: 今天做到了遇见问题都搜索 这是日常 但是今天都给�
 ![alt text](imgs/day_by_day.4c3f3a728794ff920f277cd75312374c.jpg)
 ![alt text](imgs/day_by_day.02b94ccca10792b3a7ac3c51a4542a5e.jpg)
 ![alt text](imgs/day_by_day.1970f5c162cd0290fae6bfdbb3c6cdc4.jpg)
+
+### 7.22
+7:30 醒
+8:35 打开电脑
+9:20 此单
+10:19 吃完 open
+12:00 前后吃了西瓜 十分钟
+14:40-16:00 睡了，醒了 洗了脸 去了所里一分钟 然后就回屋了
+17:00 前后吃饭 十五分钟，然后就打开了
+18:15-18:50 洗澡结束
+19:50 剪了脚趾甲花费二十分钟
+![alt text](imgs/day_by_day.ccd1aaf62151a913ebd2f3baed38910d.jpg)
+![alt text](imgs/day_by_day.0f79a9ed5aee0ce4518cee84d5dbefe3.jpg)
