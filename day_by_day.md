@@ -718,3 +718,15 @@ datetime: 今天做到了遇见问题都搜索 这是日常 但是今天都给�
 19:50 剪了脚趾甲花费二十分钟
 ![alt text](imgs/day_by_day.ccd1aaf62151a913ebd2f3baed38910d.jpg)
 ![alt text](imgs/day_by_day.0f79a9ed5aee0ce4518cee84d5dbefe3.jpg)
+
+### 7.23
+7:49 醒
+9:50 open
+11:30 zuoyou 咱松茂奶来了送的鹅蛋 然后我就切开了一个西瓜次 咱妈让给小猫买了点鸡肝 我喂了喂小猫
+12:00 好了
+13:50 zuoyou 吃饭
+14:30 chiwan qule suoli
+17:30 zuoyou youqu le suoli 
+20:20 weile xiaomao haigei zanba dale dianhua
+![alt text](imgs/day_by_day.d52c76b40d95da92f53465e87906fefd.jpg)
+![alt text](imgs/day_by_day.1341b82e5e1d4693c6a9c95306a5b3f0.jpg)
