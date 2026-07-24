@@ -730,3 +730,13 @@ datetime: 今天做到了遇见问题都搜索 这是日常 但是今天都给�
 20:20 weile xiaomao haigei zanba dale dianhua
 ![alt text](imgs/day_by_day.d52c76b40d95da92f53465e87906fefd.jpg)
 ![alt text](imgs/day_by_day.1341b82e5e1d4693c6a9c95306a5b3f0.jpg)
+
+### 7.24
+7:50 醒
+8:30 打开电脑
+9:29 左右吃饭 完 去领小狗出去了
+10:00 打开电脑
+16-17:00 去了所里18min
+17:20 左右吧 次饭 然后吃完去洗澡了 咱妈说去咱姥家 我给小狗拉出去逗了逗一圈
+19:14 刚打开就看到了芥末花生
+![alt text](imgs/day_by_day.3ccf1aea7d8eb8f09844554b285082a5.jpg)
