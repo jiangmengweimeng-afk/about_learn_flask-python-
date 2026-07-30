@@ -772,3 +772,27 @@ datetime: 今天做到了遇见问题都搜索 这是日常 但是今天都给�
 20:00 多 给咱爸打了电话 看了看小狗小猫 我去洗了澡几分钟
 ![alt text](imgs/day_by_day.246486447f25027e6e51125d1f3c0a53.jpg)
 ![alt text](imgs/day_by_day.15e517baaf96dbccb05aa5d1d7b2eccc.jpg)
+
+### 7.28
+7:30 醒
+8:40 
+14-15:00 吃了十分钟左右的西瓜 然后去了所里
+16-17:30 我去看了雨 洗了澡 做了饭 吃了饭 然后就回屋了
+20:02 给咱爸打了十分钟的电话
+![alt text](imgs/day_by_day.2955d619edc440708164338fc2a72ec9.jpg)
+
+### 7.29
+7:50 醒
+9:00 打开电话
+11-11:34 吃完饭打开电话
+18:08-18:38 吃完饭
+19:59 咱爸打了会电话
+![alt text](imgs/day_by_day.f4c9988c12e3b0c8875edc2cac2ea2a2.jpg)
+
+### 7.30
+7:30 醒
+9:20 打开电脑
+11:00 多吃了十分钟西瓜
+18:13-19:16 洗了澡 去了所里
+![alt text](imgs/day_by_day.587a8cfa90dc2599d517f9f7511d600d.jpg)
+![alt text](imgs/day_by_day.3969615ade6a9cb06eb21612b47c4475.jpg)
